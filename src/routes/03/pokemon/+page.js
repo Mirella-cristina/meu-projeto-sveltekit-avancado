@@ -1,6 +1,6 @@
 export async function load({ url, fetch }) {
     const page = Number(url.searchParams.get('page')) || 1;
-    const limit = 12;  // Quantos pokémons eu vou mostrar por página
+    const limit = 12;  
     const offset = (page - 1) * limit;
   
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
@@ -20,8 +20,7 @@ export async function load({ url, fetch }) {
     const hasNext = json.next !== null;
     const hasPrev = page > 1;
   
-    return {   // aqui a gente Retorna os dados para o +page.svelte mostrar
-
+    return {   
       pokemons,
       page,
       hasNext,
